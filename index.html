@@ -21,42 +21,55 @@
 
     <title>Simple Cart</title>
   </head>
+
   <body>
+    <div class="container framer">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col"></th>
+            <th scope="col">total Item Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="items">
+            <td class="name">Sample Item 1</td>
+            <td class="single-price"><div>20.12€</div></td>
+            <td class="quantity"><input type="number" value="1" /></td>
+            <td><button class="btn btn-light btn-sm remove">remove</button></td>
+            <td class="total-price"></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr class="items">
+            <td class="name">Sample Item 2</td>
+            <td class="single-price"><div>50.36€</div></td>
+            <td class="quantity"><input type="number" value="2" /></td>
+            <td><button class="btn btn-light btn-sm remove">remove</button></td>
+            <td class="total-price"></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td></td><td></td><td></td>
+            <td class="final-price-label">Final Price</td>
+            <td class="final-price"><div>asdasd</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <table class="table table-responsive">
-      <tbody>
-        <tr>
-          <td class="name">Sample Item 1</td>
-          <td class="single-price"><div>20.12€</div></td>
-          <td class="quantity"><input type="number" value="1" /></td>
-          <td><button class="btn btn-light btn-sm remove">remove</button></td>
-          <td class="total-price"></td>
-        </tr>
-      </tbody>
-      <tbody>
-        <tr>
-          <td class="name">Sample Item 2</td>
-          <td class="single-price"><div>50.36€</div></td>
-          <td class="quantity"><input type="number" value="2" /></td>
-          <td><button class="btn btn-light btn-sm remove">remove</button></td>
-          <td class="total-price"></td>
-        </tr>
-      </tbody>
-      <tbody>
-        <tr>
-          <td class="final-price-label">Final Price</td>
-          <td class="final-price"></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="spacer0"></div>
 
-
-    <form>
-      <input type="text" id="item-name" placeholder="item Name"/>
-      <input type="number" id="item-price" class="no-spin" placeholder="item Price"/>
-      <button>add Item</button>
-    </form>
-
-
+    <div class="container framer"> 
+      <form id="add-item">
+        <input type="text" id="item-name" placeholder="item Name"/>
+        <input type="number" step="0.01" id="item-price" class="no-spin" placeholder="item Price"/>
+        <button>add Item</button>
+      </form>
+    </div>
   </body>
 </html>
