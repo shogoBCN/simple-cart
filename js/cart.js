@@ -4,7 +4,7 @@ let itemTotalPrices = function (ele) {
   let prices = parseFloat($(ele).find('.single-price div').text()); 
   let quants = parseFloat($(ele).find('.quantity input').val()); 
   let total = parseFloat((prices * quants).toFixed(2)); 
-  $(ele).children('.total-price').html(total + "€");
+  $(ele).children('.total-price').html(total.toFixed(2) + "€");
   return total;
 };
 
@@ -42,17 +42,19 @@ $(document).ready(function () {
     event.preventDefault();
     var quant = 1;
     var name = $(this).children('#item-name').val();
-    var price = $(this).children('#item-price').val();
+    var price = parseFloat($(this).children('#item-price').val()).toFixed(2);
 
-    $('tbody:last').prepend('<tr class="items">' +
-      '<td class="name">' + name + '</td>' +
-      '<td class="single-price"><div>' + price + '</div></td>' +
-      '<td class="quantity"><input type="number" value="' + quant + '" /></td>' +
+    $('tbody:last').prepend(
+    '<tr class="items">' +
+      '<td class="name col-7">' + name + '</td>' +
+      '<td class="single-price"><div>' + price + '€' + '</div></td>' +
+      '<td class="quantity"><input class="small-input" type="number" value="' + quant + '" /></td>' +
       '<td><button class="btn btn-light btn-sm remove">remove</button></td>' +
-      '<td class="total-price"></td>' +
+      '<td class="total-price col-2"></td>' +
     '</tr>');
 
     fireAll()
+    
     $(this).children('#item-name').val('');
     $(this).children('#item-price').val('');
   });

@@ -20,3 +20,29 @@
   display: block;
   clear: both;
 }
+
+.small-input {
+  width: 60px;
+}
+
+.framer th {
+  margin-left: -20px;
+  font-size: .9em;
+  line-height: 1.1em;
+  border-top: none !important;
+}
+
+.framer td {
+  vertical-align: middle;
+  font-size: .9em;
+  line-height: 1.1em;
+}
+
+.total-price, .final-price {
+  padding-left: 2em!important;
+  padding-right: 2em!important;
+}
+
+.final-price {
+  font-weight: bold;
+}
