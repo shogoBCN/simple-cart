@@ -2,10 +2,11 @@ timeout = 0;
 
 let itemTotalPrices = function (ele) {
   let quants = parseFloat($(ele).find('.quantity input').val()); 
-  if (quants !== NaN | quants < 1) {
+  if (!quants | quants < 1) {
     quants = 1
-    $(ele).find('.quantity input').val(1);
+    $(ele).find('.quantity input').val(quants);
   }
+  
   let prices = parseFloat($(ele).find('.single-price div').text()); 
   let total = parseFloat((prices * quants).toFixed(2)); 
   $(ele).children('.total-price').html(total.toFixed(2) + "€");
