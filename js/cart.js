@@ -1,8 +1,12 @@
 timeout = 0;
 
 let itemTotalPrices = function (ele) {
-  let prices = parseFloat($(ele).find('.single-price div').text()); 
   let quants = parseFloat($(ele).find('.quantity input').val()); 
+  if (quants !== NaN | quants < 1) {
+    quants = 1
+    $(ele).find('.quantity input').val(1);
+  }
+  let prices = parseFloat($(ele).find('.single-price div').text()); 
   let total = parseFloat((prices * quants).toFixed(2)); 
   $(ele).children('.total-price').html(total.toFixed(2) + "€");
   return total;
@@ -40,9 +44,9 @@ $(document).ready(function () {
 
   $('#add-item').on('submit', function (event) {
     event.preventDefault();
-    var quant = 1;
-    var name = $(this).children('#item-name').val();
-    var price = parseFloat($(this).children('#item-price').val()).toFixed(2);
+    let quant = 1;
+    let name = $(this).children('#item-name').val();
+    let price = parseFloat($(this).children('#item-price').val()).toFixed(2);
 
     $('tbody:last').prepend(
     '<tr class="items">' +
